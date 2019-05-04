@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="도서 위치 확인" />
+        <meta name="keywords" content="충북대학교, cbnu, chugbnuk, 충북대" />
+        <meta name="author" content="김동연, 고경표, 변재혁" />
+
+        <title>{{keyword}} 도서 위치</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        <script src="{% static './js/bootstrap.js' %}" ></script>
+        <script src="{% static './js/search_view.js' %}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>"{{keyword}}" 도서 위치<small>{{company_nm}}</small></h2>
+            {% if data == "No" %}
+            <div class="alert alert-danger" role="alert">해당 도서의 위치정보가 등록되어 있지 않습니다.</div>
+            {% endif %}
+            {% if data == "Yes" %}
+            <div class="alert alert-success" role="alert"><strong>업데이트 일자</strong> {{update}}</div>
+            <h3>책장 정보</h3>
+            <div>
+                <img src="{{nfc_info}}" alt="책장 정보 이미지" /><br />
+                {{nfc_info}}
+            </div>
+            <h3>세부 정보</h3>
+            <div>
+                <p class="lead">
+                    왼쪽 상단부터 차례로 시작하여 <strong>{{book_location}}번째 칸</strong>에 위치해 있습니다.<br />
+                    <strong>{{row}} 행, {{col}} 열</strong><br />
+                    <img src="data:image/png;base64,{{book_img}}" />
+                </p>
+            </div>
+            {% endif %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,7 @@
+django
+requests
+Pool
+bs4
+opencv-python
+pymysql
+mysqlclient

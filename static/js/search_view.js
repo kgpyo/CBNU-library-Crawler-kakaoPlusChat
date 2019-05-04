@@ -1,0 +1,9 @@
+$(document).ready(function(){
+    $('#progress_loading').hide();
+ })
+ .ajaxStart(function(){
+     $('#progress_loading').show();
+ })
+ .ajaxStop(function(){
+     $('#progress_loading').hide();
+ });

@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                margin: 10px
+            }
+        </style>
+        <title>오류</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="text-center">
+                <img src="{% static 'images/error.png' %}" alt="오류 이미지"/><br />
+                <h2>오류<small>오류번호 : {{error_code}}</small></h2>
+                {{content}} <br />
+                지속적인 오류 발생시 서비스 관리자에게 문의하시기 바랍니다.
+            </div>
+        </div>
+    </body>
+</html>
